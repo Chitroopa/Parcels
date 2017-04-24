@@ -1,4 +1,3 @@
-
 require('sinatra')
 require('sinatra/reloader')
 also_reload('lib/**/*.rb')
@@ -14,6 +13,7 @@ get('/result') do
   length = params.fetch('length').to_i
   depth = params.fetch('depth').to_i
   weight = params.fetch('weight').to_i
-  @price = Parcels.new(heigth, length, depth, weight).parcel_price()
+  time = params.fetch('time').to_i
+  @price = Parcels.new(heigth, length, depth, weight, time).parcel_price()
   erb(:result)
 end
