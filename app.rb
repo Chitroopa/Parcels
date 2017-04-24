@@ -14,6 +14,6 @@ get('/result') do
   depth = params.fetch('depth').to_i
   weight = params.fetch('weight').to_i
   time = params.fetch('time').to_i
-  @price = Parcels.new(heigth, length, depth, weight, time).parcel_price()
+  @price = Parcels.new(heigth, length, depth, weight, time).parcel_price().round(2)
   erb(:result)
 end
